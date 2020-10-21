@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Boston Code Camp Counter | Speaker</title>
+        <link rel="stylesheet" href="Style.css">
+        <link rel="icon" href="">
+    </head>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="index.php">Schedule</a></li>
+            <li><a href="genre.php">Add/Edit Information</a></li>
+        </ul>
+    </nav>
+
+    <body>
+        <br /><br /><br /><br /><br /><br />
+        <form id="speakerInformation" method="POST">
+            <table class="center">
+                <tr>
+                    <th class="tabHeader">Room</th>
+                    <th class="tabHeader" id="selected" >Speaker</th>
+                    <th class="tabHeader">Time Slot</th>
+                    <th class="tabHeader">Session</th>
+                </tr>
+                <tr>
+                    <td colspan="4" style="width: 100%;">
+                        <table id="speakerInfoBody">
+                            <tr>
+                                <td colspan="4" style="text-align: center;">
+                                    <label id="addOrEdit" style="font-weight: bold;"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align: center;"><b>Speaker Information</b></td>
+                            </tr>
+                            <tr><td> </td></tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">Speaker Name: </td>
+                                <td colspan="2">
+                                        <!-- Currently set to show edit screen. Change selected to value="0" to see add screen -->
+                                    <select name="speakerName" id="ddSpeakerName" onchange='addOrEditFunc();'>
+                                        <option value="0">&lt;Add New Speaker&gt;</option>
+                                        <option value="testCase">Uncle Bob - bob@gmail.com</option>
+                                        <option value="-1" selected="true"></option>
+                                    </select>
+                                    <input type="text" id="speakerName" style="display: none;" />
+                                </td>
+                            </tr>
+                            <tr><td> </td></tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">Email: </td>
+                                <td>
+                                    <input type="email" name="speakerEmail" />
+                                </td>
+                            </tr>
+                            <tr><td> </td></tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">Phone Number #1: </td>
+                                <td>
+                                    <input type="tel" name="speakerPhoneNum1" />
+                                </td>
+                            </tr>
+                            <tr><td> </td></tr>
+                            <tr>
+                                <td colspan="2" style="text-align: right;">Phone Number #2: </td>
+                                <td>
+                                    <input type="tel" name="speakerPhoneNum2" />
+                                </td>
+                            </tr>
+                            <tr><td><br/> </td></tr>
+                            <tr id="addNewSpeaker">
+                                <td colspan="4" style="text-align: center;">
+                                    <input type="submit" id="btnAdd" name="addSpeaker" value="Add" />
+                                    &nbsp;
+                                    <input type="button" id="btnClear" name="clearSpeaker" value="Clear" />
+                                </td>
+                            </tr>
+                            <tr id="editNewSpeaker" style="display: none;">
+                                <td colspan="4" style="text-align: center;">
+                                    <input type="submit" id="btnSave" name="saveSpeaker" value="Save" />
+                                    &nbsp;
+                                    <input type="button" id="btnClear" name="clearSpeaker" value="Clear" />
+                                    &nbsp;
+                                    <input type="button" id="btnDelete" name="deleteSpeaker" value="Delete" />
+                                </td>
+                            </tr>
+                            <tr><td><br /> </td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+    <script>
+        function addOrEditFunc() {
+            var addOrEdit = document.getElementById("addOrEdit");
+            var addNewSpeakerBtns = document.getElementById("addNewSpeaker");
+            var editNewSpeakerBtns = document.getElementById("editNewSpeaker");
+            var speakerNameDd = document.getElementById("ddSpeakerName");
+            var txtBoxSpeakerName = document.getElementById("speakerName");
+            
+            if ((speakerNameDd.value == 0) || (speakerNameDd.value == -1) ) {
+                addOrEdit.textContent = "Enter"
+                editNewSpeakerBtns.style.display = "none";
+                addNewSpeakerBtns.style.display = "";
+                if (speakerNameDd.value == 0) {
+                    txtBoxSpeakerName.style.display = "";
+                    speakerNameDd.style.display = "none";
+                }
+            } else {
+                addOrEdit.textContent = "Edit"
+                editNewSpeakerBtns.style.display = "";
+                addNewSpeakerBtns.style.display = "none";
+            }
+        }
+        window.onload = addOrEditFunc();
+    </script>
+</html>
