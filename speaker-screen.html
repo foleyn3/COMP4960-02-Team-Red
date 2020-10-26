@@ -69,9 +69,9 @@
                             </tr>
                             <tr><td> </td></tr>
                             <tr>
-                                <td colspan="2" style="text-align: right;">Phone Number #2: </td>
+                                <td colspan="2" style="text-align: right;">Day of Phone Number: </td>
                                 <td>
-                                    <input type="tel" name="speakerPhoneNum2" />
+                                    <input type="tel" name="speakerDayOfPhoneNum" />
                                 </td>
                             </tr>
                             <tr><td><br/> </td></tr>
@@ -104,6 +104,7 @@
     </body>
     <script>
         function addOrEditFunc() {
+            // finds the elements and sets as variables
             var addOrEdit = document.getElementById("addOrEdit");
             var addNewSpeakerBtns = document.getElementById("addNewSpeaker");
             var editNewSpeakerBtns = document.getElementById("editNewSpeaker");
@@ -114,6 +115,16 @@
             var txtFirstName = document.getElementById("speakerFirstName");
             var txtLastName = document.getElementById("speakerLastName");
             
+            // 0 is <Add New Speaker> 
+            // -1 is a blank option
+            // Checks if it is a 0 or -1 to stay in Add mode:
+            //    - changes addOrEdit label to "Enter"
+            //    - shows add option buttons and hides edit option buttons
+            // If is <Add New Speaker>, shows blank textboxes for name slots
+            // If number is not 0 or -1, program changes to Edit Mode:
+            //    - changes addOrEdit label to "Edit"
+            //    - shows edit option buttons and hides add option buttons
+            //    - fills in textboxes with info we know 
             if ((speakerNameDd.value == 0) || (speakerNameDd.value == -1) ) {
                 addOrEdit.textContent = "Enter";
                 editNewSpeakerBtns.style.display = "none";
