@@ -35,17 +35,23 @@
                                 <td colspan="4" style="text-align: center;"><b>Speaker Information</b></td>
                             </tr>
                             <tr><td> </td></tr>
-                            <tr>
+                            <tr id="speakerName" >
                                 <td colspan="2" style="text-align: right;">Speaker Name: </td>
                                 <td colspan="2">
-                                        <!-- Currently set to show edit screen. Change selected to value="0" to see add screen -->
                                     <select name="speakerName" id="ddSpeakerName" onchange='addOrEditFunc();'>
                                         <option value="0">&lt;Add New Speaker&gt;</option>
                                         <option value="testCase">Uncle Bob - bob@gmail.com</option>
                                         <option value="-1" selected="true"></option>
                                     </select>
-                                    <input type="text" id="speakerName" style="display: none;" />
                                 </td>
+                            </tr>
+                            <tr id="speakerFirstNameCell" style="display: none;">
+                                <td colspan="2" style="text-align: right;">Speaker First Name: </td>
+                                <td><input type="text" id="speakerFirstName" name="speakerFirstName"/></td>
+                            </tr>
+                            <tr id="speakerLastNameCell" style="display: none;" >
+                                <td colspan="2" style="text-align: right;">Speaker Last Name: </td>
+                                <td><input type="text" id="speakerLastName" name="speakerLastName" /></td>
                             </tr>
                             <tr><td> </td></tr>
                             <tr>
@@ -74,6 +80,8 @@
                                     <input type="submit" id="btnAdd" name="addSpeaker" value="Add" />
                                     &nbsp;
                                     <input type="button" id="btnClear" name="clearSpeaker" value="Clear" />
+                                    &nbsp;
+                                    <input type="button" id="btnExit" name="exitSpeaker" value="Exit" />
                                 </td>
                             </tr>
                             <tr id="editNewSpeaker" style="display: none;">
@@ -83,6 +91,8 @@
                                     <input type="button" id="btnClear" name="clearSpeaker" value="Clear" />
                                     &nbsp;
                                     <input type="button" id="btnDelete" name="deleteSpeaker" value="Delete" />
+                                    &nbsp;
+                                    <input type="button" id="btnExit" name="exitSpeaker" value="Exit" />
                                 </td>
                             </tr>
                             <tr><td><br /> </td></tr>
@@ -98,20 +108,33 @@
             var addNewSpeakerBtns = document.getElementById("addNewSpeaker");
             var editNewSpeakerBtns = document.getElementById("editNewSpeaker");
             var speakerNameDd = document.getElementById("ddSpeakerName");
-            var txtBoxSpeakerName = document.getElementById("speakerName");
+            var speakerName = document.getElementById("speakerName");
+            var cellSpeakerFirstName = document.getElementById("speakerFirstNameCell");
+            var cellSpeakerLastName = document.getElementById("speakerLastNameCell");
+            var txtFirstName = document.getElementById("speakerFirstName");
+            var txtLastName = document.getElementById("speakerLastName");
             
             if ((speakerNameDd.value == 0) || (speakerNameDd.value == -1) ) {
-                addOrEdit.textContent = "Enter"
+                addOrEdit.textContent = "Enter";
                 editNewSpeakerBtns.style.display = "none";
                 addNewSpeakerBtns.style.display = "";
                 if (speakerNameDd.value == 0) {
-                    txtBoxSpeakerName.style.display = "";
                     speakerNameDd.style.display = "none";
+                    speakerName.style.display = "none"
+                    cellSpeakerFirstName.style.display = "";
+                    cellSpeakerLastName.style.display = "";
                 }
             } else {
-                addOrEdit.textContent = "Edit"
+                addOrEdit.textContent = "Edit";
                 editNewSpeakerBtns.style.display = "";
                 addNewSpeakerBtns.style.display = "none";
+                speakerNameDd.style.display = "none";
+                speakerName.style.display = "none"
+                cellSpeakerFirstName.style.display = "";
+                cellSpeakerLastName.style.display = "";
+                txtFirstName.value = "Uncle";
+                txtLastName.value = "Bob";
+                
             }
         }
         window.onload = addOrEditFunc();
