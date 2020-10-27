@@ -24,8 +24,13 @@
     box-shadow: 5px 5px 10px #888888;
 }
 
+#speakerInfoBody td {
+    width: 50%;
+}
+
 body {
     margin: 0;
+    font-family: serif;
 }
 
 nav {
@@ -39,7 +44,7 @@ nav {
 }
 
 /* Links inside the navbar */
-#navbar li a, .dropdown, .dropdownbutton {
+#navbar li a, .dropdownbtn, #programName {
 	display: block;
 	color: #000000;
 	padding: 14px 10px;
@@ -49,6 +54,37 @@ nav {
     margin-right: auto;
     width: auto;
     height: auto;
+    cursor: pointer;
+	border: none;
+	position: relative;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content a {
+    text-align: left;
+}
+
+.dropdownbtn {
+    text-decoration: none;
+    /* padding: 0; */
+    background: #e6e6e6;
+    font-family: serif;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e6e6e6;
+    min-width: 160px;
+    box-shadow: 5px 5px 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    width: 100%;
 }
 
 th a {
@@ -61,7 +97,7 @@ th:hover {
     background-color: #e6e6e6;
 }
 
-nav a:hover {
+nav a:hover, .dropdown-content a:hover, .dropdown:hover .dropdownbtn, #navSelected {
     background-color: #bfbfbf;
 }
 

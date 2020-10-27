@@ -7,9 +7,21 @@
     </head>
 
     <nav id="navbar">
-        <ul>
-            <li><a href="">Schedule</a></li>
-            <li><a href="">Add/Edit Information</a></li>
+        <ul style="width:100%">
+            <li style="float: left;" id="programName">Boston Code Camp</li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Add Counts</a></li>
+            <li>
+                <div class="dropdown">
+                    <button class="dropdownbtn" id="navSelected">Add/Edit Information</button>
+                    <div class="dropdown-content">
+                        <a href="">&nbsp;&nbsp;Room</a>
+                        <a href="speaker-screen.html">&nbsp;&nbsp;Speaker</a>
+                        <a href="">&nbsp;&nbsp;Time Slot</a>
+                        <a href="session-screen.html">&nbsp;&nbsp;Session</a>
+                    </div>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -21,7 +33,7 @@
                     <th class="tabHeader"><a href="">Room</a></th>
                     <th class="tabHeader" id="selected" ><a href="">Speaker</a></th>
                     <th class="tabHeader"><a href="">Time Slot</a></th>
-                    <th class="tabHeader"><a href="">Session</a></th>
+                    <th class="tabHeader"><a href="session-screen.html">Session</a></th>
                 </tr>
                 <tr>
                     <td colspan="4" style="width: 100%;">
