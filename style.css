@@ -123,3 +123,14 @@ input[type=button], input[type=submit] {
 input[type=button]:hover, input[type=submit]:hover {
     background-color: #666666;
 }
+
+/*For Time Slot Start And End Time*/
+
+label{
+    display: block;
+    font: lrem 'Fira Sans', sans-serif;
+}
+
+input, label{
+    margin: .4rem 0;
+}
