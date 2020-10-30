@@ -88,7 +88,7 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr><td><br/> </td></tr>
+                            <tr><td> </td></tr>
                             <tr id="addNewSession">
                                 <td colspan="4" style="text-align: center;">
                                     <input type="submit" id="btnAdd" name="addSpeaker" value="Add" />
@@ -149,8 +149,16 @@
             }
         };
 
-        function addFunct() {
-
+        function addFunc() {
+            if (speakerNameDd.value == 0) {
+                window.location.replace("speaker-screen.html");
+            }
+            if (roomNameDd.value == 0) {
+                window.location.replace("room-screen.html");
+            }
+            if (timeSlotDd.value == 0) {
+                window.location.replace("timeslot-screen.html");
+            }
         };
 
         window.onload = addOrEditFunc();
