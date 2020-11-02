@@ -46,11 +46,13 @@ Class VerifySpeaker extends VerifySQL{
    */
   private static function validateSpeakerName($speakerName){
     if(gettype($speakerName) != string || !isset($speakerName)){
-      echo "You must enter a First and Last name!\n";
+      echo "You must enter a First and Last name!";
+      echo "<br>";
       return FALSE;
     }
     elseif(VerifySQL::checkSQL($speakerName) == FALSE){
-      echo "SQL commands can't be inputs!\n";
+      echo "SQL commands can't be inputs!";
+      echo "<br>";
       return FALSE;
     }
     else{
@@ -64,15 +66,18 @@ Class VerifySpeaker extends VerifySQL{
    */
   private static function validateSpeakerEmail($speakerEmail){ 
     if(gettype($speakerEmail) != string || !isset($speakerEmail)){
-      echo "You must enter an email!\n";
+      echo "You must enter an email!";
+      echo "<br>";
       return FALSE;
     }
     elseif(VerifySQL::checkSQL($speakerEmail) == FALSE){
-      echo "SQL commands can't be inputs!\n";
+      echo "SQL commands can't be inputs!";
+      echo "<br>";
       return FALSE;
     }
     elseif(strpos($speakerEmail, '@') === FALSE){
-      echo "Your email must contain an @\n";
+      echo "Your email must contain an @";
+      echo "<br>";
       return FALSE;
     }
     else{
@@ -86,11 +91,13 @@ Class VerifySpeaker extends VerifySQL{
    */
   private static function validateSpeakerPhoneNumber($speakerPhoneNum){
     if(!is_numeric($speakerPhoneNum) || !isset($speakerPhoneNum)){
-      echo "You must enter a Phone Number!\n";
+      echo "You must enter a Phone Number!";
+      echo "<br>";
       return FALSE;
     }
-    else if(strlen($speakerPhoneNum) != (10 || 11)){
-      echo "You must enter the full phone number!";
+    else if(strlen($speakerPhone) <10 || strlen($speakerPhone)> 11){
+      echo "Phone number must be 10 or 11 digits!";
+      echo "<br>";
       return FALSE;
     }
     else{
